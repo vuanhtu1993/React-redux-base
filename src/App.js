@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
 import {connect} from 'react-redux'
-import {ADD_TODO} from './redux/actions'
+import {ADD_TODO, addTodo} from './redux/actions'
 import './App.css';
 
 
-function App({todos, dispatch}) {
+function App({todos,test, dispatch}) {
   const [todo, setTodo] = useState("");
+  console.log(todos, test);
 
   return (
     <div className="App" style={{margin: 'auto', width: 400}}>
@@ -23,7 +24,7 @@ function App({todos, dispatch}) {
         dispatch({type: ADD_TODO, todo});
         setTodo("");
       }}>
-        <input placeHolder="Enter todo" 
+        <input placeHolder="Enter todo"
           value={todo}
           onChange={e => setTodo(e.target.value)}
         ></input>
@@ -33,7 +34,8 @@ function App({todos, dispatch}) {
 }
 
 const mapStateToProps = state => ({
-  todos: state.todos
-})
+  todos: state.todos.todos,
+  test: "acb"
+});
 
 export default connect(mapStateToProps)(App);

@@ -1,13 +1,13 @@
 import {
   ADD_TODO,
   REMOVE_TODO
-} from './actions'
+} from '../actions'
 
 const initialState = {
   todos: [
-
+    "123"
   ]
-}
+};
 
 export default (state = initialState, action) => {
   switch (action.type) {
@@ -24,9 +24,9 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, {
         todos: [
           ...state.todos,
-          // do something ...        
+          // do something ...
         ]
-      })
+      });
     default:
       return state
   }
